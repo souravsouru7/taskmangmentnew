@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { fetchTaskById, addComment, deleteTask, updateTaskStatus, fetchUserRewards, requestTaskExtension, fetchExtensionRequest, setManualRewardPoints } from './tasksSlice';
+import { fetchTaskById, addComment, deleteTask, updateTaskStatus, fetchUserRewards, requestTaskExtension, setManualRewardPoints } from './tasksSlice';
 import {
     Box,
     Typography,
@@ -9,7 +9,7 @@ import {
     Grid,
     Chip,
     Button,
-    Divider,
+    // Divider,
     List,
     ListItem,
     ListItemText,
@@ -28,24 +28,24 @@ import {
     Select,
     MenuItem,
     Snackbar,
-    Card,
-    CardContent,
-    LinearProgress,
+    // Card,
+    // CardContent,
+    // LinearProgress,
     IconButton
 } from '@mui/material';
 import {
-    Edit as EditIcon,
-    Delete as DeleteIcon,
+    // Edit as EditIcon,
+    // Delete as DeleteIcon,
     Send as SendIcon,
-    Comment as CommentIcon,
+    // Comment as CommentIcon,
     Person as PersonIcon,
     Assignment as ProjectIcon,
     AccessTime as AccessTimeIcon,
-    AttachFile as AttachFileIcon,
+    // AttachFile as AttachFileIcon,
     Update as UpdateIcon,
     EmojiEvents as EmojiEventsIcon,
     TrendingUp as TrendingUpIcon,
-    Star as StarIcon
+    // Star as StarIcon
 } from '@mui/icons-material';
 import { format } from 'date-fns';
 import { useTheme, useMediaQuery } from '@mui/material';
@@ -56,7 +56,9 @@ const TaskDetail = () => {
     const navigate = useNavigate();
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-    const { currentTask, status, error, userRewards } = useSelector(state => state.tasks);
+    const { currentTask, status, error } = useSelector(state => state.tasks);
+    // eslint-disable-next-line no-unused-vars
+    const { userRewards } = useSelector(state => state.tasks);
     const { user } = useSelector(state => state.auth);
     const [commentText, setCommentText] = useState('');
     const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
@@ -91,6 +93,7 @@ const TaskDetail = () => {
     const taskDueDate = currentTask?.dueDate ? new Date(currentTask.dueDate) : null;
     const taskIsOnTime = currentTask?.isOnTime || false;
     const taskComments = currentTask?.comments || [];
+    // eslint-disable-next-line no-unused-vars
     const taskAttachments = currentTask?.attachments || [];
     const taskAssignedTo = currentTask?.assignedTo || null;
     const taskProject = currentTask?.project || null;
@@ -209,6 +212,7 @@ const TaskDetail = () => {
     const confirmStatusUpdate = async (newStatus) => {
         try {
             const result = await dispatch(updateTaskStatus({ id, status: newStatus })).unwrap();
+            // eslint-disable-next-line no-unused-vars
             const { task: updatedTask, rewardInfo } = result;
             
             // Immediately fetch updated user rewards
