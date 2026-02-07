@@ -18,8 +18,8 @@ import {
   Tab,
   ListItemAvatar,
   Avatar,
-  IconButton,
-  Tooltip,
+  // IconButton,
+  // Tooltip,
   useTheme,
   useMediaQuery,
 } from '@mui/material';
@@ -29,7 +29,7 @@ import {
   PlayArrow as InProgressIcon,
   PendingActions as PendingIcon,
   ErrorOutline as ErrorIcon,
-  Person as PersonIcon,
+  // Person as PersonIcon,
   ArrowBack as ArrowBackIcon,
 } from '@mui/icons-material';
 import { fetchUserById } from './userSlice';

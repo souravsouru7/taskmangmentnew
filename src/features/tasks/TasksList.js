@@ -48,7 +48,9 @@ const TasksList = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const { tasks, status, error } = useSelector(state => state.tasks);
+    // eslint-disable-next-line no-unused-vars
     const { projects } = useSelector(state => state.projects);
+    // eslint-disable-next-line no-unused-vars
     const { users } = useSelector(state => state.users);
     const { user } = useSelector(state => state.auth);
     const [searchTerm, setSearchTerm] = useState('');

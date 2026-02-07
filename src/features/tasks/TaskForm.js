@@ -127,6 +127,7 @@ const TaskForm = () => {
     });
 
     // Format date for input field
+    // eslint-disable-next-line no-unused-vars
     const formatDateForInput = (date) => {
         if (!date) return '';
         const d = new Date(date);
@@ -134,6 +135,7 @@ const TaskForm = () => {
     };
 
     // Format date for display
+    // eslint-disable-next-line no-unused-vars
     const formatDateForDisplay = (date) => {
         if (!date) return '';
         const d = new Date(date);
